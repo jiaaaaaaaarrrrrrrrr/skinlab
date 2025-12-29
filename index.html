@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skin Lab | 免费 7 天皮肤健康体验</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome 图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        // 使用你提供的 API 密钥
+        (function() {
+            emailjs.init('X7g5NHetTuilX5JjC'); // 你的公钥
+        })();
+    </script>
+    <style>
+        /* 滚动进度条 */
+        #progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(to right, #2a6e3f, #e63946);
+            width: 0%;
+            z-index: 9999;
+            transition: width 0.3s ease;
+        }
+        
+        /* 加载动画 */
+        .loading {
+            display: inline-block;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- 滚动进度条 -->
+    <div id="progress-bar"></div>
+
+    <!-- 1. HERO 主视觉 -->
+    <header class="hero">
+        <div class="container">
+            <h1 class="hero-title">免费 7 天，看懂你的皮肤真正问题</h1>
+            <p class="hero-subtitle">专业皮肤检测 · 基础护理体验 · 个性化护肤建议</p>
+            <p class="hero-tagline">让护肤不再靠运气，而是靠数据</p>
+            
+            <ul class="hero-features">
+                <li><i class="fas fa-check-circle"></i> 专业仪器检测皮肤状态</li>
+                <li><i class="fas fa-check-circle"></i> 真实护理流程体验</li>
+                <li><i class="fas fa-check-circle"></i> 不推销、不绑产品</li>
+            </ul>
+            
+            <div class="hero-cta">
+                <button class="cta-button primary large open-modal-btn">
+                    <span>立即领取免费 7 天体验</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+                <p class="hero-note"><i class="fas fa-shield-alt"></i> 完全免费 · 无强制消费 · 名额有限</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. 痛点共鸣 -->
+    <section class="pain-points section-dark">
+        <div class="container">
+            <h2 class="section-title">你的皮肤问题，可能不是产品问题</h2>
+            
+            <div class="pain-grid">
+                <div class="pain-item">
+                    <div class="pain-icon">😔</div>
+                    <h3>痘痘反复、敏感、泛红</h3>
+                    <p>试过无数产品，问题依然存在</p>
+                </div>
+                <div class="pain-item">
+                    <div class="pain-icon">💸</div>
+                    <h3>浪费金钱和时间</h3>
+                    <p>跟风购买，却不适合自己</p>
+                </div>
+                <div class="pain-item">
+                    <div class="pain-icon">🤔</div>
+                    <h3>不知道自己肤质</h3>
+                    <p>盲目护肤，越护越糟</p>
+                </div>
+                <div class="pain-item">
+                    <div class="pain-icon">😫</div>
+                    <h3>缺乏系统性方法</h3>
+                    <p>东试西试，没有长期计划</p>
+                </div>
+            </div>
+            
+            <div class="insight-box">
+                <p class="insight-text"><i class="fas fa-lightbulb"></i> <strong>不是你不会护肤，而是你从没真正了解过皮肤</strong></p>
+                <p>Skin Lab 用 <span class="highlight">检测 + 体验 + 建议</span> 的科学方法，帮你建立长期可持续的皮肤管理方案</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. 7天流程 -->
+    <section class="process">
+        <div class="container">
+            <h2 class="section-title">7 天，你将完成这 3 件事</h2>
+            <p class="section-subtitle">不是卖产品，是教你「怎么照顾自己的皮肤」</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-day">Day 1</div>
+                    <div class="timeline-content">
+                        <h3><i class="fas fa-microscope"></i> 专业皮肤检测</h3>
+                        <ul>
+                            <li>仪器分析：水分、油脂、毛孔、敏感度</li>
+                            <li>专业顾问解读报告</li>
+                            <li>明确当前皮肤真实状态</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-day">Day 2-6</div>
+                    <div class="timeline-content">
+                        <h3><i class="fas fa-spa"></i> 基础护理体验</h3>
+                        <ul>
+                            <li>温和清洁与基础修护</li>
+                            <li>观察皮肤每日变化</li>
+                            <li>建立正确护肤习惯</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-day">Day 7</div>
+                    <div class="timeline-content">
+                        <h3><i class="fas fa-clipboard-check"></i> 个性化护肤建议</h3>
+                        <ul>
+                            <li>适合你的护理方向</li>
+                            <li>护肤误区提醒</li>
+                            <li>是否需要进阶护理（完全自选）</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. 顾客见证 -->
+    <section class="testimonials section-dark">
+        <div class="container">
+            <h2 class="section-title">他们 7 天后，终于看懂自己的皮肤</h2>
+            
+            <div class="testimonial-slider">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">A</div>
+                        <div class="testimonial-info">
+                            <h4>A小姐 · 24岁</h4>
+                            <p>混合性肌肤 · 痘痘困扰2年</p>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">「第一次知道自己不是油皮，是缺水型。停止乱用控油产品后，7天痘痘明显稳定，现在敢素颜出门了！」</p>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">B</div>
+                        <div class="testimonial-info">
+                            <h4>B先生 · 29岁</h4>
+                            <p>油性肌肤 · 护肤新手</p>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">「以前跟风买了很多不适合的产品，Skin Lab让我真正了解自己的皮肤。现在护肤变得简单有效，不再浪费钱。」</p>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">C</div>
+                        <div class="testimonial-info">
+                            <h4>C小姐 · 31岁</h4>
+                            <p>敏感性肌肤 · 泛红困扰</p>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">「没有推销压力，顾问真的很专业。7天体验让我学会了怎么照顾敏感肌，现在泛红问题改善了很多。」</p>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. FAQ -->
+    <section class="faq">
+        <div class="container">
+            <h2 class="section-title">常见问题</h2>
+            <p class="section-subtitle">解决你的最后疑虑</p>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Q：真的完全免费吗？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>✅ 是的！7天体验包含专业检测、基础护理和个性化建议，不收取任何费用。</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Q：会不会强迫消费？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>❌ 绝对不会！我们有严格的「无压力服务」政策。体验结束后，是否继续完全由你决定。</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Q：没有护肤基础可以吗？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>👶 非常适合！7天体验就是为新手设计的。我们会从最基础的皮肤知识开始。</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Q：安全吗？专业吗？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>🏥 我们使用国际认证的专业检测设备，所有顾问均接受过专业培训。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. 召唤行动 -->
+    <section class="cta-final section-dark">
+        <div class="container">
+            <h2 class="section-title">准备好开始你的皮肤健康之旅了吗？</h2>
+            <p class="cta-subtitle">仅需30秒填写资料，立即预约专属体验时段</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-box">
+                    <div class="benefit-icon"><i class="fas fa-dollar-sign"></i></div>
+                    <h3>完全免费</h3>
+                    <p>7天体验无任何隐藏费用</p>
+                </div>
+                
+                <div class="benefit-box">
+                    <div class="benefit-icon"><i class="fas fa-user-md"></i></div>
+                    <h3>专业指导</h3>
+                    <p>一对一皮肤顾问全程陪伴</p>
+                </div>
+                
+                <div class="benefit-box">
+                    <div class="benefit-icon"><i class="fas fa-calendar-alt"></i></div>
+                    <h3>灵活预约</h3>
+                    <p>可选择最适合你的时段</p>
+                </div>
+                
+                <div class="benefit-box">
+                    <div class="benefit-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>无压力承诺</h3>
+                    <p>体验结束后无需任何购买</p>
+                </div>
+            </div>
+            
+            <div class="cta-final-action">
+                <button class="cta-button secondary large open-modal-btn">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>立即预约免费体验</span>
+                </button>
+                
+                <div class="scarcity-counter">
+                    <p><i class="fas fa-bolt"></i> 本周剩余 <span id="counter">12</span> 个名额 · 限时免费</p>
+                    <div class="counter-bar">
+                        <div class="counter-fill" style="width: 60%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 弹出式表单 Modal -->
+    <div id="formModal" class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2><i class="fas fa-calendar-plus"></i> 预约免费 7 天体验</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            
+            <div class="modal-body">
+                <form id="applicationForm">
+                    <div class="form-step active" id="step1">
+                        <h3>1. 基本资料</h3>
+                        
+                        <div class="form-group">
+                            <label for="name"><i class="fas fa-user"></i> 姓名 / 昵称 *</label>
+                            <input type="text" id="name" name="name" placeholder="如何称呼您？" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone"><i class="fas fa-phone"></i> 电话 / WhatsApp *</label>
+                            <input type="tel" id="phone" name="phone" placeholder="我们将通过此号码联系您" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email"><i class="fas fa-envelope"></i> 电子邮件（选填）</label>
+                            <input type="email" id="email" name="email" placeholder="用于发送体验报告">
+                        </div>
+                        
+                        <div class="form-navigation">
+                            <button type="button" class="btn-next" data-next="step2">下一步 <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                    
+                    <div class="form-step" id="step2">
+                        <h3>2. 皮肤状况</h3>
+                        
+                        <div class="form-group">
+                            <label><i class="fas fa-stethoscope"></i> 主要皮肤困扰 *</label>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="concerns" value="acne">
+                                    <span class="checkbox-custom"></span>
+                                    <span>痘痘反复</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="concerns" value="sensitive">
+                                    <span class="checkbox-custom"></span>
+                                    <span>敏感泛红</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="concerns" value="dry">
+                                    <span class="checkbox-custom"></span>
+                                    <span>干燥脱皮</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="concerns" value="oil">
+                                    <span class="checkbox-custom"></span>
+                                    <span>出油旺盛</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="concerns" value="aging">
+                                    <span class="checkbox-custom"></span>
+                                    <span>抗衰老</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="goal"><i class="fas fa-bullseye"></i> 希望获得 *</label>
+                            <select id="goal" name="goal" required>
+                                <option value="">选择体验目标</option>
+                                <option value="understand">了解我的皮肤类型</option>
+                                <option value="solve">解决特定皮肤问题</option>
+                                <option value="routine">建立正确护肤流程</option>
+                                <option value="maintain">维持皮肤健康状态</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-navigation">
+                            <button type="button" class="btn-prev" data-prev="step1"><i class="fas fa-arrow-left"></i> 上一步</button>
+                            <button type="button" class="btn-next" data-next="step3">下一步 <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                    
+                    <div class="form-step" id="step3">
+                        <h3>3. 预约时间</h3>
+                        
+                        <div class="form-group">
+                            <label for="time"><i class="fas fa-clock"></i> 希望体验的时间 *</label>
+                            <select id="time" name="time" required>
+                                <option value="">选择偏好时间</option>
+                                <option value="weekday_morning">平日白天 (9AM-5PM)</option>
+                                <option value="weekday_evening">平日晚上 (6PM-9PM)</option>
+                                <option value="weekend_morning">周末上午 (9AM-12PM)</option>
+                                <option value="weekend_afternoon">周末下午 (1PM-5PM)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message"><i class="fas fa-comment"></i> 其他备注（选填）</label>
+                            <textarea id="message" name="message" placeholder="例如：特别担心的问题、过敏史等" rows="3"></textarea>
+                        </div>
+                        
+                        <div class="form-agreement">
+                            <label class="agreement-label">
+                                <input type="checkbox" name="agreement" required>
+                                <span class="agreement-custom"></span>
+                                <span>我同意接收 Skin Lab 的相关信息，并了解我的资料将仅用于安排体验服务。</span>
+                            </label>
+                        </div>
+                        
+                        <div class="form-navigation">
+                            <button type="button" class="btn-prev" data-prev="step2"><i class="fas fa-arrow-left"></i> 上一步</button>
+                            <button type="submit" class="btn-submit">
+                                <i class="fas fa-paper-plane"></i> 确认预约
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="modal-footer">
+                <p><i class="fas fa-lock"></i> 您的资料将安全加密，绝不外泄</p>
+                <p><i class="fas fa-clock"></i> 提交后24小时内会有专业顾问与您联系确认时间</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 成功提示 Modal -->
+    <div id="successModal" class="modal success-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-container">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>预约成功！</h2>
+            <div class="success-details" id="successDetails">
+                <!-- 动态填充成功信息 -->
+            </div>
+            <button class="cta-button primary" id="closeSuccessModal">
+                <i class="fas fa-home"></i> 返回首页
+            </button>
+            <p class="success-note">我们的顾问将在24小时内与您联系，请保持电话畅通。</p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2024 Skin Lab. 专业皮肤健康管理 | 本页面为学习项目展示，非实际服务网站</p>
+            <p class="footer-contact">
+                <i class="fas fa-phone"></i> 预约专线：+60 12-345 6789 | 
+                <i class="fas fa-map-marker-alt"></i> 体验中心：Kuala Lumpur, Malaysia
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
